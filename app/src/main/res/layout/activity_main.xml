@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:padding="16dp"
-tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:scrollbars="vertical">
 
-<Button
-android:id="@+id/selectFileButton"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:text="Select File" />
+    <!-- ProgressBar to show file reading progress -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:visibility="gone"
+        android:layout_marginTop="32dp" />
 
-<com.google.android.material.progressindicator.CircularProgressIndicator
-android:id="@+id/progressBar"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:visibility="gone"
-android:layout_gravity="center_horizontal"
-app:indicatorSize="48dp"
-app:trackThickness="4dp" />
+    <!-- Button to trigger file selection -->
+    <Button
+        android:id="@+id/selectFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select File"
+        android:layout_marginTop="24dp"
+        android:onClick="openFilePicker" />
 
-<TextView
-android:id="@+id/logTextView"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:text="Log:"
-android:padding="10dp"
-android:background="#E0E0E0"
-android:minHeight="200dp"
-android:scrollbars="vertical" />
+    <!-- TextView to display logs and progress information -->
+    <TextView
+        android:id="@+id/logTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:text="Log Output"
+        android:textSize="14sp"
+        android:lineSpacingExtra="4sp"
+        android:scrollbars="vertical"
+        android:padding="16dp"
+        android:background="#EDEDED"
+        android:textColor="#333333"
+        android:visibility="visible"
+        android:layout_weight="1"/>
 
 </LinearLayout>
